@@ -40,7 +40,7 @@ Yêu cầu máy tính đã cài đặt [Android Studio](https://developer.androi
 
 ## Cách 3: Biên dịch nhanh bằng dòng lệnh (Terminal / Command Prompt)
 
-Yêu cầu máy đã cài đặt Java JDK 17+.
+Yêu cầu máy đã cài đặt Node.js 22+ và Java JDK 21+.
 
 ```bash
 # 1. Build ứng dụng web và đồng bộ

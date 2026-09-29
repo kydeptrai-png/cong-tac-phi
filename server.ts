@@ -16,6 +16,22 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
+// Explicit PWA routes with CORS for PWABuilder and browser compliance
+app.get(['/manifest.json', '/manifest.webmanifest'], (_req: Request, res: Response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Content-Type', 'application/manifest+json; charset=utf-8');
+  res.sendFile(path.resolve(__dirname, 'public/manifest.json'));
+});
+
+app.get('/sw.js', (_req: Request, res: Response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+  res.setHeader('Service-Worker-Allowed', '/');
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.sendFile(path.resolve(__dirname, 'public/sw.js'));
+});
+
 // API: Health check
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', time: new Date().toISOString() });

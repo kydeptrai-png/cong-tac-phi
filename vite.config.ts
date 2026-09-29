@@ -14,12 +14,15 @@ export default defineConfig(() => {
         includeAssets: ['icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png', 'pwa-maskable-512x512.png'],
         manifest: {
           id: '/',
-          name: 'Sổ Chi Tiêu & Quản Lý Công Tác Phí',
-          short_name: 'Sổ Chi Tiêu',
-          description: 'Ứng dụng quản lý công tác phí và chi tiêu cá nhân, nhập/xuất Excel & PDF thông minh, lưu trữ ngoại tuyến an toàn.',
+          name: 'Sổ Chi Tiêu & Công Tác Phí',
+          short_name: 'CT Phí',
+          description: 'Ứng dụng quản lý công tác phí và chi tiêu thông minh, quét hóa đơn AI, lưu trữ offline an toàn.',
           theme_color: '#0f766e',
           background_color: '#f8fafc',
           display: 'standalone',
+          orientation: 'portrait',
+          lang: 'vi',
+          dir: 'ltr',
           start_url: '/',
           scope: '/',
           icons: [

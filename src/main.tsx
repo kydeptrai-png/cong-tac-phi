@@ -50,11 +50,11 @@ window.onerror = (message, source, lineno, colno, error) => {
 };
 
 // Requirement 1: Register Service Worker for full offline PWA & Android APK cache
-if (typeof window !== 'undefined' && 'serviceWorker' in navigator && !import.meta.env.DEV) {
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     try {
       navigator.serviceWorker
-        .register('/sw.js')
+        .register('/sw.js', { scope: '/' })
         .then((reg) => {
           reg.addEventListener('updatefound', () => {
             const installingWorker = reg.installing;
